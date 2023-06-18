@@ -8,7 +8,7 @@
 
 2. Create vendor
 
-```docker compose composer istall```
+```docker compose composer istall``` 
 
 3. Create tables in the database:
 
