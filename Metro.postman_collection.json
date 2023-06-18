@@ -1,0 +1,518 @@
+{
+	"info": {
+		"_postman_id": "3a05168c-6bf0-41eb-bf83-909055e8d64a",
+		"name": "Metro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27276722"
+	},
+	"item": [
+		{
+			"name": "http://localhost:82/lines/add-line",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjg0MzE3MzM0LCJleHAiOjE2ODQzMjA5MzQsIm5iZiI6MTY4NDMxNzMzNCwianRpIjoiYXJOejJqeGFpU3FyUG5ZeCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bWXB3iqw9z8Rjwaz5himbgbTupzI-9PwJPI0sTIMHkM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "number",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "line 18",
+							"type": "text"
+						},
+						{
+							"key": "color",
+							"value": "#FF0000",
+							"type": "text"
+						},
+						{
+							"key": "style",
+							"value": "null",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "circular",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "external_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "sort",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "translations",
+							"value": "[{\"language_id\": 1, \"value\": \"Линия 123\"}, {\"language_id\": 2, \"value\": \"Line 123\"}]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:82/lines/add-line",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "82",
+					"path": [
+						"lines",
+						"add-line"
+					]
+				},
+				"description": "Add line and translations"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:82/stations/add-station",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjg0MzE3MzM0LCJleHAiOjE2ODQzMjA5MzQsIm5iZiI6MTY4NDMxNzMzNCwianRpIjoiYXJOejJqeGFpU3FyUG5ZeCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bWXB3iqw9z8Rjwaz5himbgbTupzI-9PwJPI0sTIMHkM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "external_id",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "219",
+							"type": "text"
+						},
+						{
+							"key": "line_id",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "stationName",
+							"type": "text"
+						},
+						{
+							"key": "cross_line_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "cross_type",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "crossPlatform",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "crossPlatformColor",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "scheme",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "stationTranslations[1][language_id]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "stationTranslations[1][value]",
+							"value": "translationName",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][station_to_id]",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][type]",
+							"value": "mcc",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][name]",
+							"value": "transferName",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][code]",
+							"value": "transferCode",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][icon]",
+							"value": "transferIcon",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][direction]",
+							"value": "forward",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][action]",
+							"value": "arrive",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][sound]",
+							"value": "soun",
+							"type": "text"
+						},
+						{
+							"key": "stationsFeatures[1][feature_id]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "stationsExits[1][direction]",
+							"value": "forward",
+							"type": "text"
+						},
+						{
+							"key": "stationsExits[1][doors]",
+							"value": "left",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:82/stations/add-station",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "82",
+					"path": [
+						"stations",
+						"add-station"
+					]
+				},
+				"description": "Add line and translations"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:82/stations/add-station Copy",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjg0MzE3MzM0LCJleHAiOjE2ODQzMjA5MzQsIm5iZiI6MTY4NDMxNzMzNCwianRpIjoiYXJOejJqeGFpU3FyUG5ZeCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bWXB3iqw9z8Rjwaz5himbgbTupzI-9PwJPI0sTIMHkM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "external_id",
+							"value": "20",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "219",
+							"type": "text"
+						},
+						{
+							"key": "line_id",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "stationName",
+							"type": "text"
+						},
+						{
+							"key": "cross_line_id",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "cross_type",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "crossPlatform",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "crossPlatformColor",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "scheme",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "active",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "stationTranslations[1][language_id]",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "stationTranslations[1][value]",
+							"value": "translationName",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][station_to_id]",
+							"value": "6",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][type]",
+							"value": "mcc",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][name]",
+							"value": "transferName",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][code]",
+							"value": "transferCode",
+							"type": "text"
+						},
+						{
+							"key": "stationsTransfers[1][icon]",
+							"value": "transferIcon",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][direction]",
+							"value": "forward",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][action]",
+							"value": "arrive",
+							"type": "text"
+						},
+						{
+							"key": "stationsAudios[1][sound]",
+							"value": "soun",
+							"type": "text"
+						},
+						{
+							"key": "stationsFeatures[1][feature_id]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "stationsExits[1][direction]",
+							"value": "forward",
+							"type": "text"
+						},
+						{
+							"key": "stationsExits[1][doors]",
+							"value": "left",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:82/stations/update-station/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "82",
+					"path": [
+						"stations",
+						"update-station",
+						"3"
+					]
+				},
+				"description": "Add line and translations"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:82/lines",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNjg0MzE3MzM0LCJleHAiOjE2ODQzMjA5MzQsIm5iZiI6MTY4NDMxNzMzNCwianRpIjoiYXJOejJqeGFpU3FyUG5ZeCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.bWXB3iqw9z8Rjwaz5himbgbTupzI-9PwJPI0sTIMHkM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:82/lines?expand=stations",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "82",
+					"path": [
+						"lines"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "-id",
+							"description": "sort by id",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "name",
+							"disabled": true
+						},
+						{
+							"key": "sort",
+							"value": "number",
+							"disabled": true
+						},
+						{
+							"key": "expand",
+							"value": "stations"
+						}
+					]
+				},
+				"description": "get all lines"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:82/stations/delete-station?id=3",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:82/stations/delete-station?id=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "82",
+					"path": [
+						"stations",
+						"delete-station"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
