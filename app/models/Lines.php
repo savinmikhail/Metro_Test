@@ -99,6 +99,39 @@ class Lines extends \yii\db\ActiveRecord
         }
     }
 
+    public function saveWithRelation($lineData)
+    {
+// Extract the translations
+        $translations = $lineData['translations'];
+
+        $transaction = Yii::$app->db->beginTransaction();
+        $errors = [];
+        try {
+            if ($this->load($lineData, '') && $this->validate()) {
+                $this->save();
+            } else {
+                // Handle the validation errors, such as returning them as a response or displaying them to the user
+                $errors['line'] = $this->getErrors();
+            }
+            // Insert dependencies into the matching tables, if corresponding fields are provided
+            if (isset($translations)) {
+                $errors['translations'] = $this->attachTranslations($translations);
+            }
+            //check for containing values of errors
+            $hasErrors = !empty(array_filter($errors));
+
+            if(!$hasErrors) {
+                $transaction->commit();
+                return $this;
+            }else {
+                return $errors;
+            }
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
+    }
+
 
     /**
      * Gets query for [[LinesTranslations]].

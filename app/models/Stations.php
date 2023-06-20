@@ -279,6 +279,114 @@ class Stations extends \yii\db\ActiveRecord
         }
     }
 
+    public function saveWithRelation($stationData)
+    {
+
+        // Extract the dependencies
+
+        $stationsTranslations = $stationData['stationTranslations'];
+        $stationsTransfers = $stationData['stationsTransfers'];
+        $stationsAudios = $stationData['stationsAudios'];
+        $stationsFeatures = $stationData['stationsFeatures'];
+        $stationsExits = $stationData['stationsExits'];
+
+        $transaction = Yii::$app->db->beginTransaction();
+        $errors = [];
+        try {
+            if ($this->load($stationData, '') && $this->validate()) {
+                $this->save();
+            } else {
+                return $this->getErrors();
+            }
+            // Insert dependencies into the matching tables, if corresponding fields are provided
+            if (isset($stationData['stationTranslations'])) {
+                $errors['translations'] = $this->attachTranslations($stationsTranslations);
+            }
+            if (isset($stationData['stationsAudios'])) {
+                $errors['audios'] = $this->attachAudios($stationsAudios);
+            }
+            if (isset($stationData['stationsTransfers'])) {
+                $errors['transfers'] = $this->attachTransfers($stationsTransfers);
+            }
+            if (isset($stationData['stationsFeatures'])) {
+                $errors['features'] = $this->attachFeatures($stationsFeatures);
+            }
+            if (isset($stationData['stationsExits'])) {
+                $errors['exits'] = $this->attachExits($stationsExits);
+            }
+            //check for values of error array
+            $hasErrors = !empty(array_filter($errors));
+
+            if(!$hasErrors) {
+                $transaction->commit();
+                return $this;
+            }else {
+                return $errors;
+            }
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
+    }
+
+    public function updateWithRelation($stationData)
+    {
+        $transaction = Yii::$app->db->beginTransaction();
+
+        $errors = [];
+        try {
+            // Save the updated station record
+            if ($this->load($stationData, '') && $this->validate()) {
+                $this->setIsNewRecord(false);
+                $this->save();
+            } else {
+                // Handle the validation errors, such as returning them as a response or displaying them to the user
+                $errors['station'] = $this->getErrors();
+            }
+
+// Update the related records in associated tables
+
+// Update stationsTranslations
+            $translations = $stationData['stationTranslations'];
+            if (isset($translations)) {
+                $errors['translations'] = $this->updateTranslations($translations);
+            }
+// Update stationsTransfers
+            $transfers = $stationData['stationsTransfers'];
+            if (isset($transfers)) {
+                $errors['transfers'] = $this->updateTransfers($transfers);
+            }
+// Update stationsAudios
+            $audios = $stationData['stationsAudios'];
+            if (isset($audios)) {
+                $errors['audios'] = $this->updateAudios($audios);
+            }
+// Update stationsFeatures
+            $features = $stationData['stationsFeatures'];
+            if (isset($features)) {
+                $errors['features'] = $this->updateFeatures($features);
+            }
+// Update stationsExits
+            $exits = $stationData['stationsExits'];
+            if (isset($exits)) {
+                $errors['exits'] = $this->updateExits($exits);
+            }
+
+            //check for values of error array
+            $hasErrors = !empty(array_filter($errors));
+
+            if(!$hasErrors) {
+                $transaction->commit();
+                return $this;
+            }else {
+                return $errors;
+            }
+        } catch (\Exception $e) {
+            $transaction->rollBack();
+            throw $e;
+        }
+    }
+
 
 
     /**
