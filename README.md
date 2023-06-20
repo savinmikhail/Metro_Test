@@ -12,16 +12,16 @@
 
 3. Create tables in the database:
 
- Remember to change your DB configs inside the .env and config/db.php if needed
+<p> Remember to change your DB configs inside the .env and config/db.php if needed</p>
 
-```make bash```
-```cd app```
-```php yii migrate```
+```make bash```<br>
+```cd app```<br>
+```php yii migrate```<br>
 
-That will seed your DB also
+<p>That will seed your DB also</p>
 
 
-4. Import Postman collection from the root directory to the Postman itself:
+4. Import Postman collection from the root directory to the Postman itself
 
 5. Test the routes
 
